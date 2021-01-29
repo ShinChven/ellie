@@ -1,0 +1,70 @@
+{
+  "name": "ellie",
+  "description": "Electron app bundled with FeathersJS.",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/",
+    "config": "config/"
+  },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run compile && npm run mocha",
+    "lint": "eslint src/. test/. --config .eslintrc.json --ext .ts --fix",
+    "dev": "ts-node-dev --no-notify src/",
+    "start": "npm run compile && node lib/",
+    "mocha": "ts-mocha \"test/**/*.ts\" --recursive --exit",
+    "compile": "shx rm -rf lib/ && tsc",
+    "electron": "npm run compile && electron lib/electron.js",
+    "setup": "npx cross-env ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ npm install",
+    "assemble": "npm run compile && node assemble.js"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ],
+    "ignore": []
+  },
+  "types": "lib/",
+  "dependencies": {
+    "@feathersjs/configuration": "^4.5.11",
+    "@feathersjs/errors": "^4.5.11",
+    "@feathersjs/express": "^4.5.11",
+    "@feathersjs/feathers": "^4.5.11",
+    "@feathersjs/socketio": "^4.5.11",
+    "@feathersjs/transport-commons": "^4.5.11",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "fs-extra": "^9.1.0",
+    "helmet": "^4.4.1",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.0",
+    "@types/cors": "^2.8.9",
+    "@types/fs-extra": "^9.0.6",
+    "@types/mocha": "^8.2.0",
+    "@types/serve-favicon": "^2.5.2",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "axios": "^0.21.1",
+    "electron": "^11.2.1",
+    "eslint": "^7.18.0",
+    "mocha": "^8.2.1",
+    "shx": "^0.3.3",
+    "ts-mocha": "^8.0.0",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
