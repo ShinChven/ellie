@@ -1,7 +1,6 @@
 rm .\build
 cd ui
 npm install
-npm run build
 npm run release
 cd ..\app
 npm run setup
