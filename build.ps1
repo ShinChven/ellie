@@ -3,8 +3,8 @@ cd ui
 npm install
 npm run release
 cd ..\app
-npm i
+npm install
 npm run assemble
 cd ..\build
-npm run setup
+npm install
 npm run build
