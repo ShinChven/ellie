@@ -15,10 +15,11 @@ function createWindow() {
     },
   });
 
-  win.loadURL(`http://${host}:${port}`);
+  const home = process.env.ELLIE_UI_HOME || `http://${host}:${port}`;
+  win.loadURL(home).then(() => console.log('Ellie UI loaded at :', home));
 }
 
-export const openWindow = ():Promise<void> => {
+export const openWindow = (): Promise<void> => {
   return new Promise((resolve) => {
 
     app.whenReady().then(createWindow);

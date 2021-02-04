@@ -26,6 +26,7 @@
     "mocha": "ts-mocha \"test/**/*.ts\" --recursive --exit",
     "compile": "shx rm -rf lib/ && tsc",
     "electron": "npm run compile && electron lib/electron.js",
+    "electron:dev": "npm run compile && cross-env ELLIE_UI_HOME=http://localhost:8000 electron lib/electron.js",
     "setup": "npx cross-env ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ npm install",
     "assemble": "npm run compile && node assemble.js"
   },
@@ -59,6 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^4.14.1",
     "@typescript-eslint/parser": "^4.14.1",
     "axios": "^0.21.1",
+    "cross-env": "^7.0.3",
     "electron": "^11.2.1",
     "eslint": "^7.18.0",
     "mocha": "^8.2.1",
